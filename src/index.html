@@ -7,11 +7,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="journal.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <h1>Daily Journal</h1>
-  <form action="">
+  <h1 class="title">Daily Journal</h1>
+  <h2 class="subtitle">Fill Out Journal Entry</h2>
+  <form action="" class="formContainer">
     <fieldset>
       <label for="journalDate">Date of entry</label>
       <input type="date" name="journalDate" id="journalDate">
@@ -32,9 +34,15 @@
         <option value="sad">Sad</option>
       </select>
     </fieldset>
-    <button>Record Journal Entry</button>
+    <button class="btn">Record Journal Entry</button>
   </form>
+    <h2 class="subtitle">Entries</h2>
+    <article class="entryLog">
+
+    </article>
+
   <script src="scripts/journal.js"></script>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>
