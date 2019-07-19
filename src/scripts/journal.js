@@ -26,8 +26,8 @@ let journalEntries = [
 {
   date: "7/18/19",
   concepts: "Buidling DOM Components in Javascript",
-  entry: "Completed lightning exercise on factory functions. Changed exercise on the political candidate from Chapter 6 so that the functions to change the object's state are methods within the object. ",
-  mood: "Happy"
+  entry: "Completed lightning exercise on factory functions. Changed exercise on the political candidate from Chapter 6 so that the functions to change the object's state are methods within the object. Updated student components exercise so that generic element generator function works with for-of loop. Styled daily journal. Learned about DOM fragments. Started learning about APIs and json.",
+  mood: "Happy and Tired"
 }
 ]
 
