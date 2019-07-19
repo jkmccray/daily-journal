@@ -31,4 +31,3 @@ let journalEntries = [
 }
 ]
 
-console.log(allJournalEntries);

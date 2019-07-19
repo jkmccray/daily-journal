@@ -12,8 +12,12 @@
 
 <body>
   <h1 class="title">Daily Journal</h1>
-  <h2 class="subtitle">Fill Out Journal Entry</h2>
-  <form action="" class="formContainer">
+  <nav class="navBar">
+    <div><a href="#makeJournalEntry" class="navItem">Add Journal Entry</a></div>
+    <div><a href="#logOfEntries" class="navItem">Skip to Journal Entries</a></div>
+  </nav>
+  <form id="makeJournalEntry" action="" class="formContainer">
+    <h2 class="newEntryHeader">New Entry</h2>
     <fieldset>
       <label for="journalDate">Date of entry</label>
       <input type="date" name="journalDate" id="journalDate">
@@ -36,7 +40,7 @@
     </fieldset>
     <button class="btn">Record Journal Entry</button>
   </form>
-    <h2 class="subtitle">Entries</h2>
+    <h2 id="logOfEntries" class="subtitle">Journal Entries</h2>
     <article class="entryLog">
 
     </article>
