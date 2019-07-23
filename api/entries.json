@@ -35,6 +35,18 @@
       "concepts": "Intro to APIs and Fetch",
       "entry": "Went over how to manipulate APIs again using Postman. Learned about 'fetch' and '.then'. Completed exercises on fetching info from local API and open source API and inserting html representation into the DOM. Book 2 Chapter 10.",
       "mood": "Fine"
+    },
+    {
+      "date": "7/22/19",
+      "concepts": "APIs and Fetch, Mini Group Project",
+      "entry": "Went over how to use fetch again. Did mini group project on fetching data from an open source API. Used the data to create html pages of blog posts, photos, and todo list. Used flexbox to style.",
+      "mood": "Happy"
+    },
+    {
+      "date": "7/23/19",
+      "concepts": "Browser Events",
+      "entry": "Went through chapter 12 in book 2. Worked on practice exercises and challenges in that chapter.",
+      "mood": "Happy"
     }
   ]
 }
