@@ -1,5 +1,6 @@
-const makeJournalEntryComponent = (journalEntry) => {
-  return `
+const entryComponent = {
+  makeJournalEntryComponent(journalEntry) {
+    return `
     <section class="eachEntry">
       <header class="entryHeader">
         <h1 class="date">Date: ${journalEntry.date}</h1>
@@ -11,4 +12,5 @@ const makeJournalEntryComponent = (journalEntry) => {
       </div>
     </section>
   `
+  }
 }

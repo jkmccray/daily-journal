@@ -6,4 +6,4 @@
     to get the data and display it.
 */
 
-API.getJournalEntries().then(addToHtml)
+API.getJournalEntries().then((parsedEntries) => {entriesDOM.addToHtml(parsedEntries)})

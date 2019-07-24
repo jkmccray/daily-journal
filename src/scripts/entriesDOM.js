@@ -1,8 +1,13 @@
 const entryLogContainer = document.querySelector(".entryLog")
 
-const addToHtml = parsedEntries => {
-  parsedEntries.forEach(entry => {
-    const newEntryString = makeJournalEntryComponent(entry)
-    entryLogContainer.innerHTML += newEntryString
-  })
-}
+const entriesDOM = {
+  addToHtml(parsedEntries) { 
+      parsedEntries.forEach(entry => {
+        const newEntryString = entryComponent.makeJournalEntryComponent(entry)
+        entryLogContainer.innerHTML += newEntryString
+      })
+    }
+  }
+
+
+  
