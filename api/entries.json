@@ -45,7 +45,13 @@
     {
       "date": "7/23/19",
       "concepts": "Browser Events",
-      "entry": "Went through chapter 12 in book 2. Worked on practice exercises and challenges in that chapter.",
+      "entry": "Went through chapter 12 in book 2. Worked on practice exercises and challenges in that chapter. Started working on chapter 13 exercises and challenges",
+      "mood": "Happy"
+    },
+    {
+      "date": "7/24/19",
+      "concepts": "Browser Events and Automation with Grunt",
+      "entry": "In class, went through chapter 13 in book 2. Completed rest of the challenges in that chapter. Started working on chapter 14.",
       "mood": "Happy"
     }
   ]
