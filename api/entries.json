@@ -53,6 +53,30 @@
       "concepts": "Browser Events and Automation with Grunt",
       "entry": "In class, went through chapter 13 in book 2. Completed rest of the challenges in that chapter. Finised daily journal part 5. Learned about Object.create (supplementary section in book 3).",
       "mood": "Happy"
+    },
+    {
+      "date": "7/25/19",
+      "concepts": "Networking Talk and Started Welcome to Nashville",
+      "entry": "Listened to talk about networking. (Need to go to meetups!) Started second group project - Welcome to Nashville. Learned more about fetching from APIs and worked on getting Zomato API key to work.",
+      "mood": "Fine"
+    },
+    {
+      "date": "7/26/19",
+      "concepts": "Continued Welcome to Nashville",
+      "entry": "Had to switch APIs for restaurants and start over on that part. Worked on getting results from API and displaying to the DOM. Got save buttons to work and itinerary to populate the selected restaurant name.",
+      "mood": "Meh"
+    },
+    {
+      "date": "7/29/19",
+      "concepts": "Continued Welcome to Nashville",
+      "entry": "Continued working on group project. Got parks and concerts sections to render to the DOM. Got all save buttons working and got everything to show up in the intinerary.",
+      "mood": "Happy"
+    },
+    {
+      "date": "7/30/19",
+      "concepts": "Finished Welcome to Nashville",
+      "entry": "Completed group project, presented, and went over retro. Worked on supplementary project making tic tac toe game. Caught up on daily journal entries....oops.",
+      "mood": "Happy"
     }
   ]
 }
