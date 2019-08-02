@@ -164,3 +164,21 @@ input, select {
   font-size: 1.1em;
   padding: 10px 15px 10px 15px;
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.footerItem, .footerItem:visited {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #004c40;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.footerItem:link {
+  text-decoration: none;
+}
+

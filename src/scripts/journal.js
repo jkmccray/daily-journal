@@ -18,7 +18,14 @@ const createEntryObject = (date, concepts, entry, mood) => {
 
 submitBtn.addEventListener("click", () => {
     const newJournalEntry = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
-    API.saveJournalEntries(newJournalEntry).then(API.getJournalEntries()).then((parsedEntries) => { entriesDOM.addToHtml(parsedEntries) })
+    API.saveJournalEntries(newJournalEntry)
+    
+    dateInput.value = ""
+    conceptsInput.value = ""
+    entryInput.value = ""
+    moodSelect.value = ""
+
+    // .then(API.getJournalEntries()).then((parsedEntries) => { entriesDOM.addToHtml(parsedEntries) })
 })
 
 
