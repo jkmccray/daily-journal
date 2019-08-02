@@ -16,34 +16,39 @@
     <div><a href="#makeJournalEntry" class="navItem">Add Journal Entry</a></div>
     <div><a href="#logOfEntries" class="navItem">Skip to Journal Entries</a></div>
   </nav>
-  <form id="makeJournalEntry" action="" class="formContainer">
+  <div id="makeJournalEntry" class="formContainer">
     <h2 class="newEntryHeader">New Entry</h2>
     <fieldset>
       <label for="journalDate">Date of entry</label>
-      <input type="date" name="journalDate" id="journalDate">
+      <input type="date" name="journalDate" id="journalDate" required>
     </fieldset>
     <fieldset>
       <label for="concepts">Concepts Covered</label>
-      <input type="text">
+      <input type="text" id="conceptsCovered" required pattern="[A-z0-9(){}:;., ]+"
+        title="Only letters, numbers, (), {}, :, and ; permitted">
     </fieldset>
     <fieldset>
       <label for="entry">Journal Entry</label>
-      <textarea name="entryText" id="entryText" cols="30" rows="10"></textarea>
+      <textarea name="entryText" id="entryText" cols="30" rows="10" required pattern="[A-z0-9(){}:;., ]+"
+        title="Only letters, numbers, (), {}, :, and ; permitted"></textarea>
     </fieldset>
     <fieldset>
       <label for="mood">Mood for the Day</label>
-      <select name="mood" id="mood">
-        <option value="happy">Happy</option>
-        <option value="fine">Fine</option>
-        <option value="sad">Sad</option>
+      <select name="mood" id="mood" required>
+        <option value=""></option>
+        <option value="Happy">Happy</option>
+        <option value="Fine">Fine</option>
+        <option value="Meh">Meh</option>
+        <option value="Frustrated">Frustrated</option>
+        <option value="Sad">Sad</option>
       </select>
     </fieldset>
-    <button class="btn">Record Journal Entry</button>
-  </form>
-    <h2 id="logOfEntries" class="subtitle">Journal Entries</h2>
-    <article class="entryLog">
+    <button class="btn" id="submit-btn">Record Journal Entry</button>
+  </div>
+  <h2 id="logOfEntries" class="subtitle">Journal Entries</h2>
+  <article class="entryLog">
 
-    </article>
+  </article>
 
   <script src="scripts/data.js"></script>
   <script src="scripts/entryComponent.js"></script>

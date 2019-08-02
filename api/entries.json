@@ -1,82 +1,102 @@
 {
   "journalEntries": [
     {
-      "date": "7/1/19",
+      "date": "2019-07-01",
       "concepts": "Downloads and Intros",
       "entry": "Downloaded pertinent programs to our computers. Listened to orientation presentation",
+      "id": 1,
       "mood": "Happy"
     },
     {
-      "date": "7/15/19",
+      "date": "2019-07-15",
       "concepts": "Javascript Functions and Debugging",
       "entry": "Went through functions chapter (Book 2 Chapter 4). Went over Chapter 5 briefly in class. Started working on exercises from Chapter 6",
+      "id": 2,
       "mood": "Fine"
     },
     {
-      "date": "7/16/19",
+      "date": "2019-07-16",
       "concepts": "Javascript Functions",
       "entry": "Worked on supplementary content \"Practice Logic, Conditions, and Iterating Collections\" and completed exercises on repl.it. Completed lightning exercise \"js-functions\".",
+      "id": 3,
       "mood": "Happy"
     },
     {
-      "date": "7/17/19",
+      "date": "2019-07-17",
       "concepts": "Javascript Functions, Objects, DOM Manipulation",
       "entry": "Continued working on exercises on objects from Chapter 6. Started on Chapter 7 \"Building DOM Components\" and started work on exercises in that chapter. Completed exercises and challenges down to \"Challenge: Composition of Smaller Components\"",
+      "id": 4,
       "mood": "Happy"
     },
     {
-      "date": "7/18/19",
+      "date": "2019-07-18",
       "concepts": "Buidling DOM Components in Javascript",
       "entry": "Completed lightning exercise on factory functions. Changed exercise on the political candidate from Chapter 6 so that the functions to change the object's state are methods within the object. Updated student components exercise so that generic element generator function works with for-of loop. Styled daily journal. Learned about DOM fragments. Started learning about APIs and json.",
+      "id": 5,
       "mood": "Happy"
     },
     {
-      "date": "7/19/19",
+      "date": "2019-07-19",
       "concepts": "Intro to APIs and Fetch",
       "entry": "Went over how to manipulate APIs again using Postman. Learned about 'fetch' and '.then'. Completed exercises on fetching info from local API and open source API and inserting html representation into the DOM. Book 2 Chapter 10.",
+      "id": 6,
       "mood": "Fine"
     },
     {
-      "date": "7/22/19",
+      "date": "2019-07-22",
       "concepts": "APIs and Fetch, Mini Group Project",
       "entry": "Went over how to use fetch again. Did mini group project on fetching data from an open source API. Used the data to create html pages of blog posts, photos, and todo list. Used flexbox to style.",
+      "id": 7,
       "mood": "Happy"
     },
     {
-      "date": "7/23/19",
+      "date": "2019-07-23",
       "concepts": "Browser Events",
       "entry": "Went through chapter 12 in book 2. Worked on practice exercises and challenges in that chapter. Started working on chapter 13 exercises and challenges",
+      "id": 8,
       "mood": "Happy"
     },
     {
-      "date": "7/24/19",
+      "date": "2019-07-24",
       "concepts": "Browser Events and Automation with Grunt",
       "entry": "In class, went through chapter 13 in book 2. Completed rest of the challenges in that chapter. Finised daily journal part 5. Learned about Object.create (supplementary section in book 3).",
+      "id": 9,
       "mood": "Happy"
     },
     {
-      "date": "7/25/19",
+      "date": "2019-07-25",
       "concepts": "Networking Talk and Started Welcome to Nashville",
       "entry": "Listened to talk about networking. (Need to go to meetups!) Started second group project - Welcome to Nashville. Learned more about fetching from APIs and worked on getting Zomato API key to work.",
+      "id": 10,
       "mood": "Fine"
     },
     {
-      "date": "7/26/19",
+      "date": "2019-07-26",
       "concepts": "Continued Welcome to Nashville",
       "entry": "Had to switch APIs for restaurants and start over on that part. Worked on getting results from API and displaying to the DOM. Got save buttons to work and itinerary to populate the selected restaurant name.",
+      "id": 11,
       "mood": "Meh"
     },
     {
-      "date": "7/29/19",
+      "date": "2019-07-29",
       "concepts": "Continued Welcome to Nashville",
       "entry": "Continued working on group project. Got parks and concerts sections to render to the DOM. Got all save buttons working and got everything to show up in the intinerary.",
+      "id": 12,
       "mood": "Happy"
     },
     {
-      "date": "7/30/19",
+      "date": "2019-07-30",
       "concepts": "Finished Welcome to Nashville",
       "entry": "Completed group project, presented, and went over retro. Worked on supplementary project making tic tac toe game. Caught up on daily journal entries....oops.",
+      "id": 13,
       "mood": "Happy"
+    },
+    {
+      "date": "2019-07-31",
+      "concepts": "Factory Functions",
+      "entry": "Covered Chapter 1 of Book 3 on factory functions. Started on practice exercises. Worked on updating LinkedIn profile.",
+      "mood": "Meh",
+      "id": 14
     }
   ]
 }

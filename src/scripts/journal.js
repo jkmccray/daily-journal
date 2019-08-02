@@ -1,9 +1,24 @@
-/*
-    Main application logic that uses the functions and objects
-    defined in the other JavaScript files.
+const dateInput = document.querySelector("#journalDate")
+const conceptsInput = document.querySelector("#conceptsCovered")
+const entryInput = document.querySelector("#entryText")
+const moodSelect = document.querySelector("#mood")
+const submitBtn = document.querySelector("#submit-btn")
+API.getJournalEntries().then((parsedEntries) => { entriesDOM.addToHtml(parsedEntries) })
 
-    Change the fake variable names below to what they should be
-    to get the data and display it.
-*/
+const createEntryObject = (date, concepts, entry, mood) => {
+    return {
+        "date": date.value,
+        "concepts": concepts.value,
+        "entry": entry.value,
+        "mood": mood.value
+    }
 
-API.getJournalEntries().then((parsedEntries) => {entriesDOM.addToHtml(parsedEntries)})
+}
+
+
+submitBtn.addEventListener("click", () => {
+    const newJournalEntry = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
+    API.saveJournalEntries(newJournalEntry).then(API.getJournalEntries()).then((parsedEntries) => { entriesDOM.addToHtml(parsedEntries) })
+})
+
+
