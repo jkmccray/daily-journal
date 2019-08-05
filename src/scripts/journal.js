@@ -17,35 +17,38 @@ const createEntryObject = (date, concepts, entry, mood) => {
     }
 }
 
-
-submitBtn.addEventListener("click", () => {
-    let newJournalEntry = {}
+const dataValidation = () => {
+    let validated
     for (let i = 0; i < inputsArray.length; i++) {
         const input = inputsArray[i]
         const pattern = /[^A-z0-9(){}:;., ]+/g
         if (input.value === "") {
+            validated = false
             alert("Please fill out all fields")
-            console.log(newJournalEntry)
             break
         } else if (pattern.test(input.value) && input !== dateInput) {
+            validated = false
             alert("Only letters, numbers, (), {}, :, and ; permitted")
             break
         } else {
-            newJournalEntry = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
-        }
+            validated = true
+        } 
     }
-    
-    // if (newJournalEntry.mood !== "") {
-    //     inputsArray.forEach(input => input.value = "")
-    //     entryLogContainer.innerHTML = ""
-    //     API.saveJournalEntries(newJournalEntry)
-    //         .then(() => API.getJournalEntries())
-    //         .then((parsedEntries) => {
-    //             entriesDOM.addToHtml(parsedEntries)
-    
-    //         })
-    // }
+    return validated
+}
 
+submitBtn.addEventListener("click", () => {
+    let newJournalEntry
+    if (dataValidation()) {
+        newJournalEntry = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
+        entryLogContainer.innerHTML = ""
+        API.saveJournalEntries(newJournalEntry)
+            .then(() => API.getJournalEntries())
+            .then((parsedEntries) => {
+                entriesDOM.addToHtml(parsedEntries)
+                inputsArray.forEach(input => input.value = "")
+            })
+    }
 })
 
 
