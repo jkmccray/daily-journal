@@ -21,7 +21,7 @@ const dataValidation = () => {
     let validated
     for (let i = 0; i < inputsArray.length; i++) {
         const input = inputsArray[i]
-        const pattern = /[^A-z0-9(){}:;., ]+/g
+        const pattern = /[^A-z0-9(){}:;.,?! ]+/g
         if (input.value === "") {
             validated = false
             alert("Please fill out all fields")
