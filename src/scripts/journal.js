@@ -70,6 +70,7 @@ recordJournalEntryBtn.addEventListener("click", () => {
         entryLogContainer.innerHTML = ""
         API.saveJournalEntries(newJournalEntryObj)
             .then(getAllJournalEntries)
+            .then(inputsArray.forEach(input => { input.value = "" }))
     }
 })
 
@@ -99,6 +100,6 @@ entryLogContainer.addEventListener("click", () => {
     if (event.target.id.startsWith("deleteBtn")) {
         const deleteBtnId = event.target.id.split("--")[1]
         API.deleteJournalEntry(deleteBtnId)
-        .then(getAllJournalEntries)
+            .then(getAllJournalEntries)
     }
 })

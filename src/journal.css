@@ -152,9 +152,10 @@ input, select {
 
 .entryLog {
   display: flex;
-  width: 100%;
+  width: 85%;
   flex-wrap: wrap;
   padding: 0 0 20px 15px;
+  margin: 0 auto;
 }
 
 .eachEntry {
