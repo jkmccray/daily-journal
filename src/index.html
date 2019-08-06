@@ -42,6 +42,18 @@
       </select>
     </fieldset>
     <button class="btn" id="submit-btn">Record Journal Entry</button>
+    <fieldset id="moodOptionsFieldset">
+      <legend>Sort By Mood</legend>
+      <div id="moodOptions">
+        <div class="mood-option-div"><input class="mood-radio" type="radio" name="moods" value="Happy">Happy</div>
+        <div class="mood-option-div"><input class="mood-radio" type="radio" name="moods" value="Fine">Fine</div>
+        <div class="mood-option-div"><input class="mood-radio" type="radio" name="moods" value="Meh">Meh</div>
+        <div class="mood-option-div"><input class="mood-radio" type="radio" name="moods" value="Frustrated">Frustrated</div>
+        <div class="mood-option-div"><input class="mood-radio" type="radio" name="moods" value="Sad">Sad</div>
+        <div class="mood-option-div"><input class="mood-radio" type="radio" name="moods" value="See-All">See All</div>
+      </div>
+      <button class="btn--small" id="search-btn">Search</button>
+    </fieldset>
   </div>
   <h2 id="logOfEntries" class="subtitle">Journal Entries</h2>
   <article class="entryLog">

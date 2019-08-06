@@ -97,6 +97,7 @@ label, input, textarea, select {
   height: 140px;
 }
 
+
 input, select {
   padding: 5px;
 }
@@ -109,6 +110,45 @@ input, select {
   margin: 10px;
   font-size: 1.05em;
 }
+
+.btn--small {
+  height: 30px;
+  width: 100px;
+  font-family: 'Raleway', sans-serif;
+  border-radius: 5px;
+  margin: 5px auto;
+  font-size: 1.05em;
+}
+
+#moodOptionsFieldset {
+  font-family: 'Raleway', sans-serif;
+  margin: 15px 0;
+  width: 95%;
+  background-color: whitesmoke;
+  border: .5px solid rgb(107, 107, 107);
+  border-radius: 5px;
+  box-shadow: 1px 1px #48a999;
+  padding: 10px;
+}
+
+#moodOptions{
+  display: flex;
+  padding: 0 10px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+.mood-option-div {
+  margin: 10px;
+  display: flex;
+}
+
+.mood-radio {
+  margin: 4px;
+  width: auto;
+}
+
 
 .entryLog {
   display: flex;

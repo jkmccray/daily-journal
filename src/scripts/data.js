@@ -2,15 +2,19 @@ const API = {
   getJournalEntries() {
     return fetch("http://localhost:3000/journalEntries")
       .then(entries => entries.json())
-  },
-  saveJournalEntries(entryObj) {
-    return fetch("http://localhost:3000/journalEntries", {
+    },
+    saveJournalEntries(entryObj) {
+      return fetch("http://localhost:3000/journalEntries", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(entryObj)
-    })
+      })
+    },
+    filterJournalEntries(radioBtnValue){
+      return fetch(`http://localhost:3000/journalEntries?mood=${radioBtnValue}`)
+      .then(entries => entries.json())
   }
 }
 

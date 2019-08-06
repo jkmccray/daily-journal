@@ -8,17 +8,24 @@ const dateInput = document.querySelector("#journalDate")
 const conceptsInput = document.querySelector("#conceptsCovered")
 const entryInput = document.querySelector("#entryText")
 const moodSelect = document.querySelector("#mood")
+const inputsArray = [dateInput, conceptsInput, entryInput, moodSelect]
 const recordJournalEntryBtn = document.querySelector("#submit-btn")
 
-const inputsArray = [dateInput, conceptsInput, entryInput, moodSelect]
+const moodOptions = document.querySelectorAll(".mood-radio")
+const searchBtn = document.querySelector("#search-btn")
+
 
 // Get journal entries initially and render to DOM
-API.getJournalEntries().then((parsedEntries) => {
-    parsedEntries.forEach(entry => {
-        const newEntryString = entryComponent.makeJournalEntryComponent(entry)
-        entriesDOM.addEntryToHtml(newEntryString)
+const getAllJournalEntries = () => {
+    API.getJournalEntries().then((parsedEntries) => {
+        parsedEntries.forEach(entry => {
+            const newEntryString = entryComponent.makeJournalEntryComponent(entry)
+            entriesDOM.addEntryToHtml(newEntryString)
+        })
     })
-})
+}
+
+getAllJournalEntries()
 
 // Object that is created to be added to the json file when a new entry is saved
 const createEntryObject = (date, concepts, entry, mood) => {
@@ -60,18 +67,11 @@ const dataValidation = () => {
 // get all of the entries from the json file again
 // render the entries to the DOM
 recordJournalEntryBtn.addEventListener("click", () => {
-    console.log(dataValidation())
     if (dataValidation()) {
         const newJournalEntryObj = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
         document.querySelector(".entryLog").innerHTML = ""
         API.saveJournalEntries(newJournalEntryObj)
-            .then(() => API.getJournalEntries())
-            .then((parsedEntries) => {
-                parsedEntries.forEach(entry => {
-                    const newEntryString = entryComponent.makeJournalEntryComponent(entry)
-                    entriesDOM.addEntryToHtml(newEntryString)
-                })
-            })
+            .then(getAllJournalEntries)
     }
 })
 
@@ -81,5 +81,23 @@ recordJournalEntryBtn.addEventListener("click", () => {
 // save the new journal entry to the API,
 // push the new entry to the local array, 
 // and re-render entries to the DOM
+
+// Add event listener to filter entries by mood
+searchBtn.addEventListener("click", () => {
+    moodOptions.forEach(mood => {
+        if (mood.checked && mood.value !== "See-All") {
+            document.querySelector(".entryLog").innerHTML = ""
+            API.filterJournalEntries(mood.value)
+                .then((entries) => {
+                    entries.forEach(entry => {
+                        const newEntryString = entryComponent.makeJournalEntryComponent(entry)
+                        entriesDOM.addEntryToHtml(newEntryString)
+                    })
+                })
+        } else if (mood.checked && mood.value === "See-All") {
+            getAllJournalEntries()
+        }
+    })
+})
 
 
