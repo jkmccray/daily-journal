@@ -2,7 +2,7 @@
 const entryLogContainer = document.querySelector(".entryLog")
 
 const entriesDOM = {
-  addToHtml(newEntryString) {
+  addEntryToHtml(newEntryString) {
       entryLogContainer.innerHTML += newEntryString
     }
 }

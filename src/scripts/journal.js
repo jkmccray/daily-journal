@@ -3,11 +3,12 @@ import API from "./data.js"
 import entryComponent from "./entryComponent.js"
 import entriesDOM from "./entriesDOM.js"
 
+// Store DOM node references in variables
 const dateInput = document.querySelector("#journalDate")
 const conceptsInput = document.querySelector("#conceptsCovered")
 const entryInput = document.querySelector("#entryText")
 const moodSelect = document.querySelector("#mood")
-const submitBtn = document.querySelector("#submit-btn")
+const recordJournalEntryBtn = document.querySelector("#submit-btn")
 
 const inputsArray = [dateInput, conceptsInput, entryInput, moodSelect]
 
@@ -15,7 +16,7 @@ const inputsArray = [dateInput, conceptsInput, entryInput, moodSelect]
 API.getJournalEntries().then((parsedEntries) => {
     parsedEntries.forEach(entry => {
         const newEntryString = entryComponent.makeJournalEntryComponent(entry)
-        entriesDOM.addToHtml(newEntryString)
+        entriesDOM.addEntryToHtml(newEntryString)
     })
 })
 
@@ -35,7 +36,7 @@ const dataValidation = () => {
     for (let i = 0; i < inputsArray.length; i++) {
         const input = inputsArray[i]
         // Regular expression:
-        const pattern = /[^A-z0-9(){}:;.,?! ]+/g            
+        const pattern = /[^A-z0-9(){}:;.,?! ]/g
         if (input.value === "") {
             validated = false
             alert("Please fill out all fields")
@@ -44,6 +45,10 @@ const dataValidation = () => {
             validated = false
             alert("Only letters, numbers, (), {}, :, and ; permitted")
             break
+        // } else if (conceptsInput.value.length > 50) {
+        //     validated = false
+        //     alert("Fifty character limit exceeded")
+        //     break
         } else {
             validated = true
         }
@@ -58,17 +63,27 @@ const dataValidation = () => {
 // post the new entry object to the json file
 // get all of the entries from the json file again
 // render the entries to the DOM
-submitBtn.addEventListener("click", () => {
+recordJournalEntryBtn.addEventListener("click", () => {
+    console.log(dataValidation())
     if (dataValidation()) {
         const newJournalEntryObj = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
-        entryLogContainer.innerHTML = ""
+        document.querySelector(".entryLog").innerHTML = ""
         API.saveJournalEntries(newJournalEntryObj)
             .then(() => API.getJournalEntries())
             .then((parsedEntries) => {
-                entriesDOM.addToHtml(parsedEntries)
-                inputsArray.forEach(input => input.value = "")
+                parsedEntries.forEach(entry => {
+                    const newEntryString = entryComponent.makeJournalEntryComponent(entry)
+                    entriesDOM.addEntryToHtml(newEntryString)
+                })
             })
     }
 })
+
+// Instead of making another http request to get the new entry, 
+// could create a local array, get the data from the API, 
+// set local array equal to the data from the API,
+// save the new journal entry to the API,
+// push the new entry to the local array, 
+// and re-render entries to the DOM
 
 
