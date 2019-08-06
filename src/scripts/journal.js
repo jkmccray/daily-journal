@@ -1,6 +1,5 @@
 // Import modules from other files
 import API from "./data.js"
-import entryComponent from "./entryComponent.js"
 import entriesDOM from "./entriesDOM.js"
 
 // Store DOM node references in variables
@@ -14,14 +13,13 @@ const recordJournalEntryBtn = document.querySelector("#submit-btn")
 const moodOptions = document.querySelectorAll(".mood-radio")
 const searchBtn = document.querySelector("#search-btn")
 
+const entryLogContainer = document.querySelector(".entryLog")
 
 // Get journal entries initially and render to DOM
 const getAllJournalEntries = () => {
     API.getJournalEntries().then((parsedEntries) => {
-        parsedEntries.forEach(entry => {
-            const newEntryString = entryComponent.makeJournalEntryComponent(entry)
-            entriesDOM.addEntryToHtml(newEntryString)
-        })
+        entryLogContainer.innerHTML = ""
+        entriesDOM.renderToDOM(parsedEntries)
     })
 }
 
@@ -69,7 +67,7 @@ const dataValidation = () => {
 recordJournalEntryBtn.addEventListener("click", () => {
     if (dataValidation()) {
         const newJournalEntryObj = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
-        document.querySelector(".entryLog").innerHTML = ""
+        entryLogContainer.innerHTML = ""
         API.saveJournalEntries(newJournalEntryObj)
             .then(getAllJournalEntries)
     }
@@ -86,13 +84,10 @@ recordJournalEntryBtn.addEventListener("click", () => {
 searchBtn.addEventListener("click", () => {
     moodOptions.forEach(mood => {
         if (mood.checked && mood.value !== "See-All") {
-            document.querySelector(".entryLog").innerHTML = ""
+            entryLogContainer.innerHTML = ""
             API.filterJournalEntries(mood.value)
                 .then((entries) => {
-                    entries.forEach(entry => {
-                        const newEntryString = entryComponent.makeJournalEntryComponent(entry)
-                        entriesDOM.addEntryToHtml(newEntryString)
-                    })
+                    entriesDOM.renderToDOM(entries)
                 })
         } else if (mood.checked && mood.value === "See-All") {
             getAllJournalEntries()
@@ -100,4 +95,10 @@ searchBtn.addEventListener("click", () => {
     })
 })
 
-
+entryLogContainer.addEventListener("click", () => {
+    if (event.target.id.startsWith("deleteBtn")) {
+        const deleteBtnId = event.target.id.split("--")[1]
+        API.deleteJournalEntry(deleteBtnId)
+        .then(getAllJournalEntries)
+    }
+})

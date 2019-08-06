@@ -174,14 +174,27 @@ input, select {
   background-color: #004c40;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding: 10px 15px 7px 15px;
+  padding: 10px 10px 7px 15px;
 
+}
+
+.date-and-delete {
+  display: flex;
+  justify-content: space-between;
 }
 
 .date {
   font-family: 'Open Sans', sans-serif;
   color: whitesmoke;
   font-size: 1em;
+}
+
+.delete-btn {
+  height: 30px;
+  width: 55px;
+  font-family: 'Raleway', sans-serif;
+  border-radius: 5px;
+  font-size: .85em;
 }
 
 .concepts {
