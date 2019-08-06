@@ -19,3 +19,4 @@ const API = {
 // getJournalEntries: function () { 
   
 
+export default API
