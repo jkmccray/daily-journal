@@ -23,10 +23,10 @@ API.getJournalEntries().then((parsedEntries) => {
 // Object that is created to be added to the json file when a new entry is saved
 const createEntryObject = (date, concepts, entry, mood) => {
     return {
-        "date": date.value,
-        "concepts": concepts.value,
-        "entry": entry.value,
-        "mood": mood.value
+        date: date.value,
+        concepts: concepts.value,
+        entry: entry.value,
+        mood: mood.value
     }
 }
 
@@ -45,10 +45,6 @@ const dataValidation = () => {
             validated = false
             alert("Only letters, numbers, (), {}, :, and ; permitted")
             break
-        // } else if (conceptsInput.value.length > 50) {
-        //     validated = false
-        //     alert("Fifty character limit exceeded")
-        //     break
         } else {
             validated = true
         }

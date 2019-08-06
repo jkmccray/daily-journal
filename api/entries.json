@@ -23,7 +23,7 @@
     },
     {
       "date": "2019-07-17",
-      "concepts": "Javascript Functions, Objects, DOM Manipulation",
+      "concepts": "JS Functions, Objects, DOM Manipulation",
       "entry": "Continued working on exercises on objects from Chapter 6. Started on Chapter 7 \"Building DOM Components\" and started work on exercises in that chapter. Completed exercises and challenges down to \"Challenge: Composition of Smaller Components\"",
       "id": 4,
       "mood": "Happy"
@@ -65,7 +65,7 @@
     },
     {
       "date": "2019-07-25",
-      "concepts": "Networking Talk and Started Welcome to Nashville",
+      "concepts": "Networking Talk and Welcome to Nashville",
       "entry": "Listened to talk about networking. (Need to go to meetups!) Started second group project - Welcome to Nashville. Learned more about fetching from APIs and worked on getting Zomato API key to work.",
       "id": 10,
       "mood": "Fine"
@@ -111,6 +111,13 @@
       "entry": "Covered array methods from book 3 chapter 3: forEach, map, filter, find, sort, every, some, includes, reduce. Reduce is complicated, but seems useful. Learned about code snippets in VS Code. Kept working on daily journal part 6. Started working on practice exercises for this chapter.",
       "mood": "Happy",
       "id": 16
+    },
+    {
+      "date": "2019-08-05",
+      "concepts": "Daily Journal Part 7 and Array Methods",
+      "entry": "Worked on Daily Journal Part 7. Learned about regular expressions and using JavaScript for input data validation",
+      "mood": "Fine",
+      "id": 17
     }
   ]
 }
