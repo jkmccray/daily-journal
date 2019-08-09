@@ -41,8 +41,9 @@ const dataValidation = () => {
     for (let i = 0; i < inputsArray.length; i++) {
         const input = inputsArray[i]
         // Regular expression:
-        const pattern = /[^A-z0-9(){}:;.,?! ]/g
-        if (input.value === "") {
+        const pattern = /[^A-z0-9(){}:;.,?!\'\" ]/g
+        const whitespacePattern = /^\s+$/
+        if (input.value === "" || whitespacePattern.test(input.value)) {
             validated = false
             alert("Please fill out all fields")
             break

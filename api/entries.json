@@ -125,6 +125,20 @@
       "entry": "Completed parts 8 and 9 of the Daily Journal. Practiced querying the API by modifying the URL and deleting elements from the API. ",
       "mood": "Fine",
       "id": 18
+    },
+    {
+      "date": "2019-08-07",
+      "concepts": "Array Methods",
+      "entry": "Worked on array methods (book 3, chapter 5) practice exercises. Downloaded the z jump command in bash, which allows easy navigation to frequently visited directories. ",
+      "mood": "Fine",
+      "id": 19
+    },
+    {
+      "date": "2019-08-08",
+      "concepts": "Array Methods and Personal Project",
+      "entry": "Finished challenge on array methods (car dealership) in book 3 chapter 5 while at home for the morning because the AC was not working in the building. Went to cohort 31 soft demo day in the afternoon. Worked on memory game project at home.",
+      "mood": "Fine",
+      "id": 20
     }
   ]
 }
