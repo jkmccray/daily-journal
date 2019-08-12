@@ -14,7 +14,7 @@ const API = {
   },
   filterJournalEntries(radioBtnValue) {
     return fetch(`http://localhost:3000/journalEntries?mood=${radioBtnValue}`)
-    .then(entries => entries.json())
+      .then(entries => entries.json())
   },
   deleteJournalEntry(deleteBtnId) {
     return fetch(`http://localhost:3000/journalEntries/${deleteBtnId}`, {
@@ -22,6 +22,19 @@ const API = {
       headers: {
         "Content-Type": "application/json"
       }
+    })
+  },
+  getSingleJournalEntry(entryId) {
+    return fetch(`http://localhost:3000/journalEntries/${entryId}`)
+      .then(entries => entries.json())
+  },
+  editJournalEntry(entryObj, editBtnId) {
+    return fetch(`http://localhost:3000/journalEntries/${editBtnId}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(entryObj)
     })
   }
 }

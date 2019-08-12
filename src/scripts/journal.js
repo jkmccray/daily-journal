@@ -15,6 +15,8 @@ const searchBtn = document.querySelector("#search-btn")
 
 const entryLogContainer = document.querySelector(".entryLog")
 
+const hiddenInput = document.querySelector("#hiddenInput")
+
 // Get journal entries initially and render to DOM
 const getAllJournalEntries = () => {
     API.getJournalEntries().then((parsedEntries) => {
@@ -66,12 +68,21 @@ const dataValidation = () => {
 // get all of the entries from the json file again
 // render the entries to the DOM
 recordJournalEntryBtn.addEventListener("click", () => {
-    if (dataValidation()) {
+    if (dataValidation() && !hiddenInput.value) {
         const newJournalEntryObj = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
         entryLogContainer.innerHTML = ""
         API.saveJournalEntries(newJournalEntryObj)
-            .then(getAllJournalEntries)
-            .then(inputsArray.forEach(input => { input.value = "" }))
+        .then(getAllJournalEntries)
+        .then(inputsArray.forEach(input => { input.value = "" }))
+    } else if (dataValidation() && hiddenInput.value) {
+        const editedEntryObj = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
+        API.editJournalEntry(editedEntryObj, hiddenInput.value)
+        .then(() => {
+            entryLogContainer.innerHTML = ""
+            hiddenInput.value = ""
+            getAllJournalEntries()
+            inputsArray.forEach(input => { input.value = "" })
+        })
     }
 })
 
@@ -97,10 +108,26 @@ searchBtn.addEventListener("click", () => {
     })
 })
 
+// Event listener for edit and delete buttons
 entryLogContainer.addEventListener("click", () => {
-    if (event.target.id.startsWith("deleteBtn")) {
+    const userConfirm = confirm("Confirm you want to delete this journal entry")
+    if (event.target.id.startsWith("deleteBtn") && userConfirm) {
         const deleteBtnId = event.target.id.split("--")[1]
         API.deleteJournalEntry(deleteBtnId)
-            .then(getAllJournalEntries)
+        .then(getAllJournalEntries)
+    } else if (event.target.id.startsWith("editBtn")) {
+        const editBtnId = event.target.id.split("--")[1]
+        hiddenInput.value = event.target.id.split("--")[1]
+        API.getSingleJournalEntry(editBtnId)
+        .then((entryObj) => {
+            dateInput.value = entryObj.date
+            conceptsInput.value = entryObj.concepts
+            entryInput.value = entryObj.entry
+            moodSelect.value = entryObj.mood
+        })
+
     }
 })
+
+
+

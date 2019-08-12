@@ -3,9 +3,9 @@
     {
       "date": "2019-07-01",
       "concepts": "Downloads and Intros",
-      "entry": "Downloaded pertinent programs to our computers. Listened to orientation presentation",
-      "id": 1,
-      "mood": "Happy"
+      "entry": "Downloaded pertinent programs to our computers, including bash and node js. Listened to orientation presentation",
+      "mood": "Happy",
+      "id": 1
     },
     {
       "date": "2019-07-15",
@@ -153,6 +153,13 @@
       "entry": "Worked more on product ordering exercise. Got average rating to display and got partial cat faces to display.",
       "mood": "Happy",
       "id": 22
+    },
+    {
+      "date": "2019-08-12",
+      "concepts": "Adding Edit Button and Using PUT on API",
+      "entry": "Worked on book 3 chapters 9 and 10 on editing and using PUT on an API. Added working edit buttons to journal entries.",
+      "mood": "Happy",
+      "id": 23
     }
   ]
 }
