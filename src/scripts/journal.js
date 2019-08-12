@@ -72,17 +72,17 @@ recordJournalEntryBtn.addEventListener("click", () => {
         const newJournalEntryObj = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
         entryLogContainer.innerHTML = ""
         API.saveJournalEntries(newJournalEntryObj)
-        .then(getAllJournalEntries)
-        .then(inputsArray.forEach(input => { input.value = "" }))
+            .then(getAllJournalEntries)
+            .then(inputsArray.forEach(input => { input.value = "" }))
     } else if (dataValidation() && hiddenInput.value) {
         const editedEntryObj = createEntryObject(dateInput, conceptsInput, entryInput, moodSelect)
         API.editJournalEntry(editedEntryObj, hiddenInput.value)
-        .then(() => {
-            entryLogContainer.innerHTML = ""
-            hiddenInput.value = ""
-            getAllJournalEntries()
-            inputsArray.forEach(input => { input.value = "" })
-        })
+            .then(() => {
+                entryLogContainer.innerHTML = ""
+                hiddenInput.value = ""
+                getAllJournalEntries()
+                inputsArray.forEach(input => { input.value = "" })
+            })
     }
 })
 
@@ -110,14 +110,10 @@ searchBtn.addEventListener("click", () => {
 
 // Event listener for edit and delete buttons
 entryLogContainer.addEventListener("click", () => {
-    const userConfirm = confirm("Confirm you want to delete this journal entry")
-    if (event.target.id.startsWith("deleteBtn") && userConfirm) {
-        const deleteBtnId = event.target.id.split("--")[1]
-        API.deleteJournalEntry(deleteBtnId)
-        .then(getAllJournalEntries)
-    } else if (event.target.id.startsWith("editBtn")) {
+    if (event.target.id.startsWith("editBtn")) {
         const editBtnId = event.target.id.split("--")[1]
         hiddenInput.value = event.target.id.split("--")[1]
+        recordJournalEntryBtn.textContent = "Save Changes"
         API.getSingleJournalEntry(editBtnId)
         .then((entryObj) => {
             dateInput.value = entryObj.date
@@ -125,7 +121,13 @@ entryLogContainer.addEventListener("click", () => {
             entryInput.value = entryObj.entry
             moodSelect.value = entryObj.mood
         })
-
+    } else if (event.target.id.startsWith("deleteBtn")) {
+        const userConfirm = confirm("Confirm you want to delete this journal entry")
+        if (userConfirm) {
+            const deleteBtnId = event.target.id.split("--")[1]
+            API.deleteJournalEntry(deleteBtnId)
+                .then(getAllJournalEntries)
+        }
     }
 })
 
